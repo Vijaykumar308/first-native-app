@@ -9,7 +9,7 @@ import {
     StatusBar,
     Platform,
 } from 'react-native';
-import { Ionicons } from 'react-native-vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 
 export default function SignUpScreen() {
     const [email, setEmail] = useState('');
