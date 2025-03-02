@@ -1,6 +1,5 @@
 import { View, Text, SafeAreaView, TouchableOpacity, StatusBar, Image, StyleSheet, Dimensions } from 'react-native';
 import React from 'react'
-// import style  from "../styles";
 
 const {width, height} = Dimensions.get('window');
 
@@ -43,8 +42,7 @@ const styles = StyleSheet.create({
     container: {
       width:width,
       height:height,
-    //   flex: 1,
-      backgroundColor: '#636AE8FF', // Indigo/purple color
+      backgroundColor: '#636AE8FF', 
     },
     content: {
       flex: 1,
