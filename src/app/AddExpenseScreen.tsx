@@ -14,7 +14,7 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import CalendarModal from '../components/CalendarModal';
-// import { StackNavigationProp } from '@react-navigation/stack';
+import { StackNavigationProp } from '@react-navigation/stack';
 
 // Define types
 type RootStackParamList = {
@@ -22,7 +22,7 @@ type RootStackParamList = {
   AddExpense: undefined;
 };
 
-// type AddExpenseScreenNavigationProp = StackNavigationProp<RootStackParamList, 'AddExpense'>;
+type AddExpenseScreenNavigationProp = StackNavigationProp<RootStackParamList, 'AddExpense'>;
 
 interface CategoryItem {
   id: string;
@@ -31,7 +31,7 @@ interface CategoryItem {
 }
 
 interface AddExpenseScreenProps {
-  // navigation: AddExpenseScreenNavigationProp;
+  navigation: AddExpenseScreenNavigationProp;
 }
 
 const getFormattedDate = (date: Date): string => {
