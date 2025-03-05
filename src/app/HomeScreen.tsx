@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import { View, Text, StyleSheet, TextInput, Image, TouchableOpacity, SafeAreaView, StatusBar } from 'react-native';
+import { View, Text, StyleSheet, TextInput, Image, TouchableOpacity, SafeAreaView, StatusBar, Linking } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { useNavigation } from 'expo-router';
+import { Link } from '@react-navigation/native';
+import HeaderWithGoBack from '../components/HeaderWithGoBack';
 
-const HomeScreen = () => {
-  const navigation = useNavigation();
+const HomeScreen = ({ navigation}:any) => {
 
   useEffect(() => {
     navigation.setOptions({ headerShown: false });
@@ -16,7 +16,8 @@ const HomeScreen = () => {
         
         {/* Header */}
         <View style={styles.header}>
-          <Text style={styles.headerTitle}>Home</Text>
+          <HeaderWithGoBack title="Home"/>
+          {/* <Text style={styles.headerTitle}>Home</Text> */}
           <TouchableOpacity style={styles.profileButton}>
             <Ionicons name="exit-outline" size={24} color="#6B77F8" />
           </TouchableOpacity>
@@ -38,7 +39,7 @@ const HomeScreen = () => {
           <View style={styles.expenseCard}>
             <View style={styles.expenseInfo}>
               <Text style={styles.periodTitle}>Today</Text>
-              <Text style={styles.expenseSubtitle}>Daily Expenses: $120</Text>
+              <Text style={styles.expenseSubtitle}>Daily Expenses: ₹120</Text>
               <TouchableOpacity style={styles.detailsButton}>
                 <Text style={styles.detailsButtonText}>View Details</Text>
               </TouchableOpacity>
@@ -54,7 +55,7 @@ const HomeScreen = () => {
           <View style={styles.expenseCard}>
             <View style={styles.expenseInfo}>
               <Text style={styles.periodTitle}>This Week</Text>
-              <Text style={styles.expenseSubtitle}>Weekly Expenses: $850</Text>
+              <Text style={styles.expenseSubtitle}>Weekly Expenses: ₹850</Text>
               <TouchableOpacity style={styles.detailsButton}>
                 <Text style={styles.detailsButtonText}>View Details</Text>
               </TouchableOpacity>
@@ -69,7 +70,7 @@ const HomeScreen = () => {
           <View style={styles.expenseCard}>
             <View style={styles.expenseInfo}>
               <Text style={styles.periodTitle}>This Month</Text>
-              <Text style={styles.expenseSubtitle}>Monthly Expenses: $3200</Text>
+              <Text style={styles.expenseSubtitle}>Monthly Expenses: ₹3200</Text>
               <TouchableOpacity style={styles.detailsButton}>
                 <Text style={styles.detailsButtonText}>View Details</Text>
               </TouchableOpacity>
@@ -82,9 +83,9 @@ const HomeScreen = () => {
         </View>
         
         {/* Add Expense Button */}
-        <TouchableOpacity style={styles.addButton}>
+        <TouchableOpacity style={styles.addButton} onPress={navigation.navigate('AddExpenseScreen')}>
           <Ionicons name="add" size={20} color="white" style={styles.addIcon} />
-          <Text style={styles.addButtonText}>Add Expense</Text>
+            <Text style={styles.addButtonText}>Add Expense</Text>
         </TouchableOpacity>
         
         {/* Bottom Tab Navigation */}
@@ -94,7 +95,7 @@ const HomeScreen = () => {
             <Text style={[styles.tabLabel, styles.activeTabLabel]}>Home</Text>
           </TouchableOpacity>
           
-          <TouchableOpacity style={styles.tabItem}>
+          <TouchableOpacity style={styles.tabItem} onPress={() => navigation.navigate('SignUpScreen')}>
             <Ionicons name="add-circle-outline" size={24} color="#9CA3AF" />
             <Text style={styles.tabLabel}>Add Expense</Text>
           </TouchableOpacity>
@@ -104,6 +105,7 @@ const HomeScreen = () => {
             <Text style={styles.tabLabel}>Settings</Text>
           </TouchableOpacity>
         </View>
+        
       </SafeAreaView>
     );
   };
