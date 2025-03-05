@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { 
   View, 
   Text, 
@@ -15,6 +15,7 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import CalendarModal from '../components/CalendarModal';
 import { StackNavigationProp } from '@react-navigation/stack';
+import HeaderWithGoBack from '../components/HeaderWithGoBack';
 
 // Define types
 type RootStackParamList = {
@@ -41,11 +42,15 @@ const getFormattedDate = (date: Date): string => {
   return `${year}-${month}-${day}`;
 };
 
-const AddExpenseScreen: React.FC<AddExpenseScreenProps> = ({ navigation }) => {
+const AddExpenseScreen = ({ navigation }:any) => {
   const [amount, setAmount] = useState<string>('100');
   const [description, setDescription] = useState<string>('Lunch with colleagues');
   const [category, setCategory] = useState<string>('Food');
   const [date, setDate] = useState<Date>(new Date(getFormattedDate(new Date())));
+
+  useEffect(() => {
+    navigation.setOptions({headerShown:false});
+  }, [navigation]);
   
   // Modal states
   const [categoryModalVisible, setCategoryModalVisible] = useState<boolean>(false);
@@ -115,9 +120,10 @@ const AddExpenseScreen: React.FC<AddExpenseScreenProps> = ({ navigation }) => {
       
       {/* Header */}
       <View style={styles.header}>
-        <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+        <HeaderWithGoBack title="Add Expense" />
+        {/* <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
           <Ionicons name="arrow-back" size={24} color="#000000" />
-        </TouchableOpacity>
+        </TouchableOpacity> */}
         <Text style={styles.headerTitle}>Add Expense</Text>
         <TouchableOpacity style={styles.exitButton}>
           <Ionicons name="exit-outline" size={24} color="#6B77F8" />

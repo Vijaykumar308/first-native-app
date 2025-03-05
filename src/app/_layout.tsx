@@ -1,20 +1,82 @@
-import { Stack } from "expo-router";
+import { NavigationContainer, NavigationIndependentTree } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+// import { Stack } from "expo-router";
+import HomeScreen from "./HomeScreen";
+import AddExpenseScreen from "./AddExpenseScreen";
+import SignUpScreen from "./SignUpScreen";
+import ExpenseDetailsScreen from "./ExpenseDetailsScreen";
+import Index from "./Index";
 
+
+const Stack = createStackNavigator();
 const RootLayout = () => {
-    return <Stack>
+    return <>
+    <NavigationIndependentTree>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+
         <Stack.Screen 
-            name="AddExpenseScreen"
-            options={{
-                headerTitle:"Add Expense"
-            }}
-         />
-         <Stack.Screen 
-            name="ExpenseDetailsScreen"
-            options={{
-                headerTitle:"Expense Details"
-            }}
-         />
-    </Stack>
+            name="SignUpScreen" 
+            component={SignUpScreen} 
+            options={
+                {
+                    headerTitle:"Sign Up"
+                }
+            }
+        />
+
+        <Stack.Screen 
+            name="Home" 
+            component={HomeScreen} 
+        />
+
+        <Stack.Screen 
+            name="Index" 
+            component={Index} 
+        />
+
+        <Stack.Screen 
+            name="AddExpenseScreen" 
+            component={AddExpenseScreen}
+        />
+
+        <Stack.Screen
+          name="ExpenseDetailsScreen"
+          component={ExpenseDetailsScreen}
+          options={{ title: 'Expense Details' }}
+        />
+
+      </Stack.Navigator>
+    </NavigationContainer>
+    </NavigationIndependentTree>
+    </>
 }
+
+
+
+
+
+// const RootLayout = () => {
+//     return <Stack>
+//          <Stack.Screen 
+//             name="SignUpScreen"
+//             options={{
+//                 headerTitle:"Sign Up"
+//             }}
+//          />
+//         <Stack.Screen 
+//             name="AddExpenseScreen"
+//             options={{
+//                 headerTitle:"Add Expense"
+//             }}
+//          />
+//          <Stack.Screen 
+//             name="ExpenseDetailsScreen"
+//             options={{
+//                 headerTitle:"Expense Details"
+//             }}
+//          />
+//     </Stack>
+// }
 
 export default RootLayout;

@@ -15,7 +15,7 @@ interface Category {
   amount: number;
 }
 
-const ExpenseDetailsScreen: React.FC = () => {
+const ExpenseDetailsScreen = () => {
   // Sample data based on the screenshot
   const totalExpense = 280.50;
   const percentChange = -9.8;
@@ -78,7 +78,7 @@ const ExpenseDetailsScreen: React.FC = () => {
         </View>
       </ScrollView>
       
-      <View style={styles.footer}>
+      {/* <View style={styles.footer}>
         <TouchableOpacity style={styles.footerTab}>
           <Ionicons name="home" size={24} color="#7e57c2" />
           <Text style={styles.footerTabText}>Home</Text>
@@ -92,7 +92,24 @@ const ExpenseDetailsScreen: React.FC = () => {
           <Ionicons name="settings" size={24} color="#888" />
           <Text style={styles.footerTabText}>Settings</Text>
         </TouchableOpacity>
-      </View>
+      </View> */}
+
+      <View style={styles.tabBar}>
+                <TouchableOpacity style={styles.tabItem}>
+                  <Ionicons name="home" size={24} color="#6B77F8" />
+                  <Text style={[styles.tabLabel, styles.activeTabLabel]}>Home</Text>
+                </TouchableOpacity>
+                
+                <TouchableOpacity style={styles.tabItem}>
+                  <Ionicons name="add-circle-outline" size={24} color="#9CA3AF" />
+                  <Text style={styles.tabLabel}>Add Expense</Text>
+                </TouchableOpacity>
+                
+                <TouchableOpacity style={styles.tabItem}>
+                  <Ionicons name="settings-outline" size={24} color="#9CA3AF" />
+                  <Text style={styles.tabLabel}>Settings</Text>
+                </TouchableOpacity>
+              </View>
     </SafeAreaView>
   );
 };
@@ -218,6 +235,28 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 4,
     marginBottom: 16,
+  },
+
+  tabBar: {
+    flexDirection: 'row',
+    backgroundColor: '#FFFFFF',
+    borderTopWidth: 1,
+    borderTopColor: '#F3F4F6',
+    paddingVertical: 10,
+  },
+  tabItem: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  tabLabel: {
+    fontSize: 12,
+    marginTop: 4,
+    color: '#9CA3AF',
+  },
+  activeTabLabel: {
+    color: '#6B77F8',
+    fontWeight: '500',
   },
 });
 
