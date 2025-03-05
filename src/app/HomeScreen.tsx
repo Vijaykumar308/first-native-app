@@ -40,7 +40,7 @@ const HomeScreen = ({ navigation}:any) => {
             <View style={styles.expenseInfo}>
               <Text style={styles.periodTitle}>Today</Text>
               <Text style={styles.expenseSubtitle}>Daily Expenses: ₹120</Text>
-              <TouchableOpacity style={styles.detailsButton}>
+              <TouchableOpacity style={styles.detailsButton} onPress={() => navigation.navigate('SignUpScreen')}>
                 <Text style={styles.detailsButtonText}>View Details</Text>
               </TouchableOpacity>
             </View>
@@ -83,7 +83,7 @@ const HomeScreen = ({ navigation}:any) => {
         </View>
         
         {/* Add Expense Button */}
-        <TouchableOpacity style={styles.addButton} onPress={navigation.navigate('AddExpenseScreen')}>
+        <TouchableOpacity style={styles.addButton} onPress={() => navigation.navigate('AddExpenseScreen')}>
           <Ionicons name="add" size={20} color="white" style={styles.addIcon} />
             <Text style={styles.addButtonText}>Add Expense</Text>
         </TouchableOpacity>
@@ -95,9 +95,9 @@ const HomeScreen = ({ navigation}:any) => {
             <Text style={[styles.tabLabel, styles.activeTabLabel]}>Home</Text>
           </TouchableOpacity>
           
-          <TouchableOpacity style={styles.tabItem} onPress={() => navigation.navigate('SignUpScreen')}>
+          <TouchableOpacity style={styles.tabItem} onPress={() => navigation.navigate('ExpenseDetailsScreen')}>
             <Ionicons name="add-circle-outline" size={24} color="#9CA3AF" />
-            <Text style={styles.tabLabel}>Add Expense</Text>
+            <Text style={styles.tabLabel}>Bill Details</Text>
           </TouchableOpacity>
           
           <TouchableOpacity style={styles.tabItem}>
@@ -105,7 +105,6 @@ const HomeScreen = ({ navigation}:any) => {
             <Text style={styles.tabLabel}>Settings</Text>
           </TouchableOpacity>
         </View>
-        
       </SafeAreaView>
     );
   };

@@ -12,42 +12,43 @@ const Stack = createStackNavigator();
 const RootLayout = () => {
     return <>
     <NavigationIndependentTree>
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
+        <NavigationContainer>
+            <Stack.Navigator initialRouteName="Home">
 
-        <Stack.Screen 
-            name="SignUpScreen" 
-            component={SignUpScreen} 
-            options={
-                {
-                    headerTitle:"Sign Up"
-                }
-            }
-        />
+                <Stack.Screen
+                    name="SignUpScreen" 
+                    component={SignUpScreen} 
+                    options={
+                        {
+                            headerTitle:"Sign Up"
+                        }
+                    }
+                />
 
-        <Stack.Screen 
-            name="Home" 
-            component={HomeScreen} 
-        />
+                <Stack.Screen 
+                    name="Home" 
+                    component={HomeScreen} 
+                />
 
-        <Stack.Screen 
-            name="Index" 
-            component={Index} 
-        />
+                <Stack.Screen 
+                    name="Index" 
+                    component={Index} 
+                />
 
-        <Stack.Screen 
-            name="AddExpenseScreen" 
-            component={AddExpenseScreen}
-        />
+                <Stack.Screen 
+                    name="AddExpenseScreen" 
+                    component={AddExpenseScreen}
+                    options={{ title: 'Add Expense' }}
+                />
 
-        <Stack.Screen
-          name="ExpenseDetailsScreen"
-          component={ExpenseDetailsScreen}
-          options={{ title: 'Expense Details' }}
-        />
+                <Stack.Screen
+                name="ExpenseDetailsScreen"
+                component={ExpenseDetailsScreen}
+                options={{ title: 'Expense Details' }}
+                />
 
-      </Stack.Navigator>
-    </NavigationContainer>
+            </Stack.Navigator>
+        </NavigationContainer>
     </NavigationIndependentTree>
     </>
 }

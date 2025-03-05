@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity, StatusBar } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import HeaderWithGoBack from '../components/HeaderWithGoBack';
 
 interface Transaction {
   id: string;
@@ -39,10 +40,6 @@ const ExpenseDetailsScreen = () => {
     <SafeAreaView style={styles.container}>
         <StatusBar barStyle="dark-content" />
       <View style={styles.header}>
-        <TouchableOpacity style={styles.backButton}>
-          <Ionicons name="arrow-back" size={24} color="black" />
-        </TouchableOpacity>
-        <Text style={styles.headerTitle}>Expense Details</Text>
         <View style={styles.placeholder} />
       </View>
       
@@ -96,13 +93,13 @@ const ExpenseDetailsScreen = () => {
 
       <View style={styles.tabBar}>
                 <TouchableOpacity style={styles.tabItem}>
-                  <Ionicons name="home" size={24} color="#6B77F8" />
-                  <Text style={[styles.tabLabel, styles.activeTabLabel]}>Home</Text>
+                  <Ionicons name="home" size={24} color="#9CA3AF" />
+                  <Text style={[styles.tabLabel]}>Home</Text>
                 </TouchableOpacity>
                 
                 <TouchableOpacity style={styles.tabItem}>
-                  <Ionicons name="add-circle-outline" size={24} color="#9CA3AF" />
-                  <Text style={styles.tabLabel}>Add Expense</Text>
+                  <Ionicons name="add-circle-outline" size={24} color="#6B77F8"  />
+                  <Text style={[styles.tabLabel, styles.activeTabLabel]}>Add Expense</Text>
                 </TouchableOpacity>
                 
                 <TouchableOpacity style={styles.tabItem}>

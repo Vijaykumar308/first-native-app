@@ -21,7 +21,7 @@ export default HeaderWithGoBack;
 const styles = StyleSheet.create({
     flex:{
         display:"flex",
-        width:100,
+        width:230,
        flexDirection:"row",
        alignItems:"center"
     },
