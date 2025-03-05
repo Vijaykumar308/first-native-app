@@ -5,10 +5,6 @@ import { Link } from '@react-navigation/native';
 import HeaderWithGoBack from '../components/HeaderWithGoBack';
 
 const HomeScreen = ({ navigation}:any) => {
-
-  useEffect(() => {
-    navigation.setOptions({ headerShown: false });
-  }, [navigation]);
          
     return (
       <SafeAreaView style={styles.container}>
@@ -17,10 +13,6 @@ const HomeScreen = ({ navigation}:any) => {
         {/* Header */}
         <View style={styles.header}>
           <HeaderWithGoBack title="Home"/>
-          {/* <Text style={styles.headerTitle}>Home</Text> */}
-          <TouchableOpacity style={styles.profileButton}>
-            <Ionicons name="exit-outline" size={24} color="#6B77F8" />
-          </TouchableOpacity>
         </View>
         
         {/* Search Bar */}

@@ -117,14 +117,14 @@ const AddExpenseScreen = ({ navigation }:any) => {
       
       {/* Header */}
       <View style={styles.header}>
-        <HeaderWithGoBack title="Add Expense" />
+        {/* <HeaderWithGoBack title="Add Expense" /> */}
         {/* <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
           <Ionicons name="arrow-back" size={24} color="#000000" />
         </TouchableOpacity> */}
         {/* <Text style={styles.headerTitle}>Add Expense</Text> */}
-        <TouchableOpacity style={styles.exitButton}>
+        {/* <TouchableOpacity style={styles.exitButton}>
           <Ionicons name="exit-outline" size={24} color="#6B77F8" />
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
       
       {/* Expense Form */}
@@ -256,6 +256,8 @@ const styles = StyleSheet.create({
   },
   exitButton: {
     padding: 8,
+    display:"flex",
+    justifyContent:"flex-end"
   },
   form: {
     paddingHorizontal: 16,
