@@ -1,26 +1,25 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, TextInput, Image, TouchableOpacity, SafeAreaView, StatusBar, Linking } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { Link } from '@react-navigation/native';
 import HeaderWithGoBack from '../components/HeaderWithGoBack';
 
 const HomeScreen = ({ navigation}:any) => {
-
-  useEffect(() => {
-    navigation.setOptions({ headerShown: false });
-  }, [navigation]);
-         
+    const [isLoading, setIsLoading] = useState(true);
+    
+    useEffect(() => {
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 3000);
+    }, []);
+    
     return (
       <SafeAreaView style={styles.container}>
         <StatusBar barStyle="dark-content" />
         
         {/* Header */}
         <View style={styles.header}>
-          <HeaderWithGoBack title="Home"/>
-          {/* <Text style={styles.headerTitle}>Home</Text> */}
-          <TouchableOpacity style={styles.profileButton}>
-            <Ionicons name="exit-outline" size={24} color="#6B77F8" />
-          </TouchableOpacity>
+          {/* <HeaderWithGoBack title="Home"/> */}
         </View>
         
         {/* Search Bar */}
@@ -40,7 +39,7 @@ const HomeScreen = ({ navigation}:any) => {
             <View style={styles.expenseInfo}>
               <Text style={styles.periodTitle}>Today</Text>
               <Text style={styles.expenseSubtitle}>Daily Expenses: ₹120</Text>
-              <TouchableOpacity style={styles.detailsButton}>
+              <TouchableOpacity style={styles.detailsButton} onPress={() => navigation.navigate('ExpenseDetailsScreen')}>
                 <Text style={styles.detailsButtonText}>View Details</Text>
               </TouchableOpacity>
             </View>
@@ -83,7 +82,7 @@ const HomeScreen = ({ navigation}:any) => {
         </View>
         
         {/* Add Expense Button */}
-        <TouchableOpacity style={styles.addButton} onPress={navigation.navigate('AddExpenseScreen')}>
+        <TouchableOpacity style={styles.addButton} onPress={() => navigation.navigate('AddExpenseScreen')}>
           <Ionicons name="add" size={20} color="white" style={styles.addIcon} />
             <Text style={styles.addButtonText}>Add Expense</Text>
         </TouchableOpacity>
@@ -95,9 +94,9 @@ const HomeScreen = ({ navigation}:any) => {
             <Text style={[styles.tabLabel, styles.activeTabLabel]}>Home</Text>
           </TouchableOpacity>
           
-          <TouchableOpacity style={styles.tabItem} onPress={() => navigation.navigate('SignUpScreen')}>
+          <TouchableOpacity style={styles.tabItem} onPress={() => navigation.navigate('ExpenseDetailsScreen')}>
             <Ionicons name="add-circle-outline" size={24} color="#9CA3AF" />
-            <Text style={styles.tabLabel}>Add Expense</Text>
+            <Text style={styles.tabLabel}>Bill Details</Text>
           </TouchableOpacity>
           
           <TouchableOpacity style={styles.tabItem}>
@@ -105,7 +104,6 @@ const HomeScreen = ({ navigation}:any) => {
             <Text style={styles.tabLabel}>Settings</Text>
           </TouchableOpacity>
         </View>
-        
       </SafeAreaView>
     );
   };

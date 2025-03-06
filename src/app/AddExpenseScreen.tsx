@@ -48,9 +48,6 @@ const AddExpenseScreen = ({ navigation }:any) => {
   const [category, setCategory] = useState<string>('Food');
   const [date, setDate] = useState<Date>(new Date(getFormattedDate(new Date())));
 
-  useEffect(() => {
-    navigation.setOptions({headerShown:false});
-  }, [navigation]);
   
   // Modal states
   const [categoryModalVisible, setCategoryModalVisible] = useState<boolean>(false);
@@ -120,14 +117,14 @@ const AddExpenseScreen = ({ navigation }:any) => {
       
       {/* Header */}
       <View style={styles.header}>
-        <HeaderWithGoBack title="Add Expense" />
+        {/* <HeaderWithGoBack title="Add Expense" /> */}
         {/* <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
           <Ionicons name="arrow-back" size={24} color="#000000" />
         </TouchableOpacity> */}
-        <Text style={styles.headerTitle}>Add Expense</Text>
-        <TouchableOpacity style={styles.exitButton}>
+        {/* <Text style={styles.headerTitle}>Add Expense</Text> */}
+        {/* <TouchableOpacity style={styles.exitButton}>
           <Ionicons name="exit-outline" size={24} color="#6B77F8" />
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
       
       {/* Expense Form */}
@@ -259,6 +256,8 @@ const styles = StyleSheet.create({
   },
   exitButton: {
     padding: 8,
+    display:"flex",
+    justifyContent:"flex-end"
   },
   form: {
     paddingHorizontal: 16,
