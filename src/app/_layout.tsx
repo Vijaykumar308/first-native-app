@@ -6,14 +6,29 @@ import AddExpenseScreen from "./AddExpenseScreen";
 import SignUpScreen from "./SignUpScreen";
 import ExpenseDetailsScreen from "./ExpenseDetailsScreen";
 import Index from "./Index";
+import { useEffect, useState } from "react";
+import LaunchScreen from "./LaunchScreen";
+import SplashScreenView from "../components/SplashScreenView";
 
 
 const Stack = createStackNavigator();
 const RootLayout = () => {
+
     return <>
     <NavigationIndependentTree>
         <NavigationContainer>
-            <Stack.Navigator initialRouteName="Home">
+            <Stack.Navigator initialRouteName="SplashScreenView">
+                
+            <Stack.Screen
+                    name="SplashScreenView" 
+                    component={SplashScreenView} 
+                    options={
+                        {
+                            headerShown:false
+                        }
+                    }
+                />
+
 
                 <Stack.Screen
                     name="SignUpScreen" 

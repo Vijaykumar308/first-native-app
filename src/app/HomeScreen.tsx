@@ -1,18 +1,25 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, TextInput, Image, TouchableOpacity, SafeAreaView, StatusBar, Linking } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { Link } from '@react-navigation/native';
 import HeaderWithGoBack from '../components/HeaderWithGoBack';
 
 const HomeScreen = ({ navigation}:any) => {
-         
+    const [isLoading, setIsLoading] = useState(true);
+    
+    useEffect(() => {
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 3000);
+    }, []);
+    
     return (
       <SafeAreaView style={styles.container}>
         <StatusBar barStyle="dark-content" />
         
         {/* Header */}
         <View style={styles.header}>
-          <HeaderWithGoBack title="Home"/>
+          {/* <HeaderWithGoBack title="Home"/> */}
         </View>
         
         {/* Search Bar */}
@@ -32,7 +39,7 @@ const HomeScreen = ({ navigation}:any) => {
             <View style={styles.expenseInfo}>
               <Text style={styles.periodTitle}>Today</Text>
               <Text style={styles.expenseSubtitle}>Daily Expenses: ₹120</Text>
-              <TouchableOpacity style={styles.detailsButton} onPress={() => navigation.navigate('SignUpScreen')}>
+              <TouchableOpacity style={styles.detailsButton} onPress={() => navigation.navigate('ExpenseDetailsScreen')}>
                 <Text style={styles.detailsButtonText}>View Details</Text>
               </TouchableOpacity>
             </View>
