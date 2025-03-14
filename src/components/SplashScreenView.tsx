@@ -5,12 +5,10 @@ const {width, height} = Dimensions.get('window');
 const SplashScreenView = ({navigation}:any) => {
 
     useEffect(() => {
-        // Set a timeout for 3 seconds, after which the app will navigate to the main screen
         const timer = setTimeout(() => {
-          navigation.replace('Home'); // Navigate to HomeScreen after the splash screen
-        }, 1000); // 3000 ms = 3 seconds
+          navigation.replace('Home');
+        }, 1000);
     
-        // Clean up the timeout on component unmount
         return () => clearTimeout(timer);
       }, [navigation]);
 
