@@ -96,7 +96,7 @@ const HomeScreen = ({ navigation}:any) => {
           
           <TouchableOpacity style={styles.tabItem} onPress={() => navigation.navigate('ExpenseDetailsScreen')}>
             <Ionicons name="add-circle-outline" size={24} color="#9CA3AF" />
-            <Text style={styles.tabLabel}>Bill Details</Text>
+            <Text style={styles.tabLabel}>Expense Details</Text>
           </TouchableOpacity>
           
           <TouchableOpacity style={styles.tabItem}>
