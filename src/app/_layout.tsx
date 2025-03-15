@@ -1,17 +1,14 @@
 import { NavigationContainer, NavigationIndependentTree } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-// import { Stack } from "expo-router";
 import HomeScreen from "./HomeScreen";
 import AddExpenseScreen from "./AddExpenseScreen";
 import SignUpScreen from "./SignUpScreen";
 import ExpenseDetailsScreen from "./ExpenseDetailsScreen";
 import Index from "./Index";
-import { useEffect, useState } from "react";
-import LaunchScreen from "./LaunchScreen";
 import SplashScreenView from "../components/SplashScreenView";
 
-
 const Stack = createStackNavigator();
+
 const RootLayout = () => {
 
     return <>

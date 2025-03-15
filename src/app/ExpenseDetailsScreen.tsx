@@ -16,7 +16,7 @@ interface Category {
   amount: number;
 }
 
-const ExpenseDetailsScreen = () => {
+const ExpenseDetailsScreen = ({navigation}:any) => {
   // Sample data based on the screenshot
   const totalExpense = 280.50;
   const percentChange = -9.8;
@@ -92,14 +92,14 @@ const ExpenseDetailsScreen = () => {
       </View> */}
 
       <View style={styles.tabBar}>
-                <TouchableOpacity style={styles.tabItem}>
+                <TouchableOpacity style={styles.tabItem} onPress={() => navigation.navigate('Home')}>
                   <Ionicons name="home" size={24} color="#9CA3AF" />
                   <Text style={[styles.tabLabel]}>Home</Text>
                 </TouchableOpacity>
                 
                 <TouchableOpacity style={styles.tabItem}>
                   <Ionicons name="add-circle-outline" size={24} color="#6B77F8"  />
-                  <Text style={[styles.tabLabel, styles.activeTabLabel]}>Add Expense</Text>
+                  <Text style={[styles.tabLabel, styles.activeTabLabel]}>Expense Details</Text>
                 </TouchableOpacity>
                 
                 <TouchableOpacity style={styles.tabItem}>
