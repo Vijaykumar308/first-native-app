@@ -18,7 +18,7 @@ const SplashScreenView = ({navigation}:any) => {
             <Image 
                 source={require("../assets/app_logo.png")} 
             />
-            <Text style={styles.appTitle}>Welcome to Buget App</Text>
+            <Text style={styles.appTitle}>Welcome to Buget App </Text>
          </View>
     </View>
   )
