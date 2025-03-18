@@ -11,7 +11,7 @@ const SplashScreenView = ({navigation}:any) => {
     
         return () => clearTimeout(timer);
       }, [navigation]);
-
+ 
   return (
     <View style={styles.container}>
         <View style={styles.content}>
