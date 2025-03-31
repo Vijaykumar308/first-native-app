@@ -65,31 +65,4 @@ const RootLayout = () => {
     </>
 }
 
-
-
-
-
-// const RootLayout = () => {
-//     return <Stack>
-//          <Stack.Screen 
-//             name="SignUpScreen"
-//             options={{
-//                 headerTitle:"Sign Up"
-//             }}
-//          />
-//         <Stack.Screen 
-//             name="AddExpenseScreen"
-//             options={{
-//                 headerTitle:"Add Expense"
-//             }}
-//          />
-//          <Stack.Screen 
-//             name="ExpenseDetailsScreen"
-//             options={{
-//                 headerTitle:"Expense Details"
-//             }}
-//          />
-//     </Stack>
-// }
-
 export default RootLayout;
